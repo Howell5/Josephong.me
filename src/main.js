@@ -4,12 +4,11 @@ import Vue from 'vue';
 import App from './App';
 import router from './router';
 
-Vue.config.productionTip = false;
+Vue.config.productionTip = true;  // 生产环境提示
 
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
-  template: '<App/>',
-  components: { App },
+  render: h => h(App)
 });
