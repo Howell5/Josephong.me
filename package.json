@@ -15,8 +15,10 @@
   },
   "dependencies": {
     "axios": "^0.16.1",
+    "body-parser": "^1.17.2",
     "express": "^4.15.2",
     "marked": "^0.3.6",
+    "mongoose": "^4.10.6",
     "vue": "^2.2.6",
     "vue-router": "^2.5.3"
   },
