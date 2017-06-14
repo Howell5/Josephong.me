@@ -9,14 +9,13 @@ const UserSchema = new mongoose.Schema({
 
 const ArticleSchema = new mongoose.Schema({
   title: String,
-  id: String,
   date: Date,
   state: String
 });
 
 const Models = {
-  User: mongoose.Model('User', UserSchema),
-  Article: mongoose.Model('User', ArticleSchema)
+  User: mongoose.model('User', UserSchema),
+  Articles: mongoose.model('Post', ArticleSchema)
 };
 
-module.export = Models;
+module.exports = Models;

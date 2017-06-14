@@ -11,20 +11,23 @@
 
 <script>
 export default {
+  created() {
+    this.getPost();
+  },
   name: 'post',
   data() {
     return {
-      posts: [
-        {
-          id: 1,
-          head: 'hello world'
-        },
-        {
-          id: 2,
-          head: 'IMAGE TEST'
-        }
-      ]
+      posts: []
     };
+  },
+  methods: {
+    // 获取所有post数据
+    getPost() {
+      this.$http.get('/post').
+      then(res => {
+        console.log(res.body);
+      });
+    }
   }
 };
 </script>

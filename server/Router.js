@@ -3,29 +3,40 @@ const express = require('express');
 const bodyParser = require('body-parser');
 
 const router = express.Router();
+const app = express();
 
-express.use(bodyParser.urlencoded({ extended: true }));
-express.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 router.use((req, res, next) => {
-  console.log('something is happend!');
+  // console.log('something is happend!');
   next();
 });
 
-router.route('/post')
+router.route('/api')
+      .get((req, res) => {
+        db.Articles.find((err, articles) => {
+          if (err) {
+            res.send(err);
+            return;
+          }
+          res.json(articles);
+        });
+      })
 
       .post((req, res) => {
-        const user = new db.User();
-        user.name = req.body.name;
-        user.pwd = req.body.pwd;
+        const articles = new db.Articles();
+        articles.title = req.body.title;
+        articles.date = req.body.date;
+        articles.state = req.body.state;
 
-        user.save((err) => {
+        articles.save((err) => {
           if (err) res.send(err);
-          res.json({ message: 'new User has been created' });
+          res.json({ message: 'new articles has been created' });
         });
       });
 
-express.use('/', router);
+app.use('/post', router);
 
-express.listen(9999);
-console.log('magic has been run on 9999');
+app.listen(9999);
+// console.log('magic has been run on 9999');
