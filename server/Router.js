@@ -35,8 +35,25 @@ router.route('/api')
           res.json({ message: 'new articles has been created' });
         });
       });
+router.route('/api/:post_id')
+      .get((req, res) => {
+        db.Articles.findById(req.params.post_id, (err, post) => {
+          if (err) {
+            res.send(err);
+          }
+          res.json(post);
+        });
+      })
+      .delete((req, res) => {
+        db.Articles.remove({ _id: req.params.post_id }, (err, res) => {
+          if (err) {
+            res.send(err);
+          }
+          res.json({ message: 'Successfully Delete!' });
+        })
+      })
 
-app.use('/post', router);
+app.use('/', router);
 
 app.listen(9999);
 // console.log('magic has been run on 9999');

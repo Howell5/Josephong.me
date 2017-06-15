@@ -1,9 +1,9 @@
 <template>
   <div class="main">
     <ul>
-      <li v-for="post in posts">
-        <h3>{{ post.id }}</h3>
-        <h2><a href="#">{{ post.head }}</a></h2>
+      <li v-for="post in posts" :key="post._id">
+        <h3>{{ post.date }}</h3>
+        <h2 @click="getPostDetail(post._id)">{{ post.title }}</h2>
       </li>
     </ul>
   </div>
@@ -23,9 +23,15 @@ export default {
   methods: {
     // 获取所有post数据
     getPost() {
-      this.$http.get('/post').
+      this.$http.get('/api').
       then(res => {
-        console.log(res.body);
+        this.posts = res.data;
+      });
+    },
+    getPostDetail(id) {
+      this.$router.push({
+        name: 'postDetail',
+        params: { id: id }
       });
     }
   }
@@ -69,6 +75,7 @@ export default {
     text-transform: uppercase;
 }
 .main h2 {
+    cursor: pointer;
     font-size: 20px;
     letter-spacing: 1px;
     margin-left: 120px;
