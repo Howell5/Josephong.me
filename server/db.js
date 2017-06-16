@@ -10,7 +10,8 @@ const UserSchema = new mongoose.Schema({
 const ArticleSchema = new mongoose.Schema({
   title: String,
   date: Date,
-  state: String
+  state: String,
+  content: String
 });
 
 const Models = {

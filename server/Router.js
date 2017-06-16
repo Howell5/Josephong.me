@@ -25,10 +25,11 @@ router.route('/api')
       })
 
       .post((req, res) => {
-        const articles = new db.Articles();
+        let articles = new db.Articles();
         articles.title = req.body.title;
         articles.date = req.body.date;
         articles.state = req.body.state;
+        articles.content = req.body.content;
 
         articles.save((err) => {
           if (err) res.send(err);
@@ -45,12 +46,27 @@ router.route('/api/:post_id')
         });
       })
       .delete((req, res) => {
-        db.Articles.remove({ _id: req.params.post_id }, (err, res) => {
+        db.Articles.remove({ _id: req.params.post_id }, (err, post) => {
           if (err) {
             res.send(err);
           }
           res.json({ message: 'Successfully Delete!' });
         })
+      })
+      .put((req, res) => {
+        db.Articles.findById(req.params.post_id, (err, post) => {
+          if (err) res.send(err);
+          post.title = req.body.title;
+          post.date = req.body.date;
+          post.state = req.body.state;
+          post.content = req.body.content;
+
+          post.save( err => {
+            if (err) res.send(err);
+            res.json({ message: 'Update Successfully' })
+          })
+        });
+
       })
 
 app.use('/', router);

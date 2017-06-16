@@ -22,7 +22,6 @@ export default {
   font-family: 'Sofia', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
   margin-top: 60px;
 }
@@ -37,6 +36,13 @@ export default {
 .header a {
   font-size: 15px;
   color: #444;
+}
+.links {
+    text-align: center;
+    font-family: "Roboto", "Helvetica Neue", "Hiragino Sans GB", "LiHei Pro", Arial, serif;
+    color: #999;
+    font-size: 24px;
+    margin: 0;
 }
 .links img {
   width: 15px;

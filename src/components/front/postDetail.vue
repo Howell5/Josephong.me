@@ -3,7 +3,7 @@
     <div class="post">
       <h3 class="date">{{ post.date }}</h3>
       <h1>{{ post.title }}</h1>
-      <div class="content">
+      <div class="content" v-html="compiledMarkdown">
         {{ post.content }}
       </div>
     </div>
@@ -11,14 +11,33 @@
 </template>
 
 <script>
+import marked from 'marked';
+import highlight from 'highlight.js';
 export default {
+  created() {
+    this.getPostDetail()
+  },
   data() {
     return {
       post: {}
     }
   },
-  mounted() {
-    this.getPostDetail()
+  computed: {
+    compiledMarkdown: function() {
+      return marked(this.post.content, {
+        renderer: new marked.Renderer(),
+        gfm: true,
+        tables: true,
+        breaks: false,
+        pedantic: false,
+        sanitize: false,
+        smartLists: true,
+        smartypants: false,
+        highlight: function(code) {
+          return highlight.highlightAuto(code).value;
+        }
+      });
+    }
   },
   methods: {
     getPostDetail() {
@@ -29,6 +48,24 @@ export default {
       })
     }
   }
+  // directives: {
+  //   compiledMarkdown: {
+  //     bind: function(el) {
+  //       marked.setOptions({
+  //         renderer: new marked.Renderer(),
+  //         gfm: true,
+  //         tables: true,
+  //         breaks: false,
+  //         pedantic: false,
+  //         sanitize: false,
+  //         smartLists: true,
+  //         smartypants: false
+  //       });
+  //       console.log(el.innerText);
+  //       el.innerHTML = marked(el.innerText);
+  //     }
+  //   }
+  // }
 }
 </script>
 

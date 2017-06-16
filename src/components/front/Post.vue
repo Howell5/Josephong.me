@@ -80,13 +80,6 @@ export default {
     letter-spacing: 1px;
     margin-left: 120px;
 }
-
-.main h2, .main h3 {
-    letter-spacing: 1px;
-    margin: 0;
-    text-transform: uppercase;
-}
-
 .main h2 a {
     color: #444;
 }
