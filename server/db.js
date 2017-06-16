@@ -9,7 +9,6 @@ const UserSchema = new mongoose.Schema({
 
 const ArticleSchema = new mongoose.Schema({
   title: String,
-  date: Date,
   state: String,
   content: String
 });

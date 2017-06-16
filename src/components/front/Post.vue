@@ -10,11 +10,13 @@
 </template>
 
 <script>
+import moment from 'moment';
+import objectidToTimestamp from 'objectid-to-timestamp';
 export default {
   created() {
     this.getPost();
   },
-  name: 'post',
+  name: 'posts',
   data() {
     return {
       posts: []
@@ -26,6 +28,9 @@ export default {
       this.$http.get('/api').
       then(res => {
         this.posts = res.data;
+        this.posts.forEach(post => {
+          post.date = moment(objectidToTimestamp(post._id)).format('YYYY-MM-DD');
+        });
       });
     },
     getPostDetail(id) {

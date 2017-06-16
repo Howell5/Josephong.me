@@ -6,6 +6,7 @@ import postDetail from '@/components/front/postDetail';
 Vue.use(Router);
 
 export default new Router({
+  mode: 'history',
   routes: [
     {
       path: '/',

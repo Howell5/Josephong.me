@@ -11,6 +11,8 @@
 </template>
 
 <script>
+import moment from 'moment';
+import objectidToTimestamp from 'objectid-to-timestamp';
 import marked from 'marked';
 import highlight from 'highlight.js';
 export default {
@@ -42,9 +44,10 @@ export default {
   methods: {
     getPostDetail() {
       let id = this.$route.params.id;
-      this.$http.get('/api/' + id)
+      this.$http.get(`/api/${id}`)
       .then(res => {
         this.post = res.data;
+        this.post.date = moment(objectidToTimestamp(this.post._id)).format('YYYY-MM-DD');
       })
     }
   }
@@ -100,5 +103,18 @@ export default {
 .post .content {
     text-align: left;
     line-height: 1.8em;
+}
+blockquote {
+  padding: 0 1em;
+  color: #6a737d;
+  border-left: .25em solid #dfe2e5;
+}
+pre {
+  padding: 16px;
+  overflow: auto;
+  font-size: 85%;
+  line-height: 1.45;
+  background-color: #f6f8fa;
+  border-radius: 3px;
 }
 </style>
