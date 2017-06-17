@@ -4,8 +4,6 @@
 const db = require('./db');
 const express = require('express');
 const bodyParser = require('body-parser');
-//const moment = require('moment');
-//const objectidToTimestamp = require('objectid-to-timestamp');
 
 const router = express.Router();
 const app = express();

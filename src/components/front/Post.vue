@@ -1,5 +1,13 @@
 <template>
+  <!-- <img src="./assets/logo.png"> -->
+
   <div class="main">
+    <div class="header">
+      <a href="/post">HOWELL</a>
+    </div>
+    <p class="links">
+      <a href="https://github.com/howell5" target="_blank"><img src="../../assets/github.png"></a>
+    </p>
     <ul>
       <li v-for="post in posts" :key="post._id">
         <h3>{{ post.date }}</h3>
@@ -88,11 +96,7 @@ export default {
 .main h2 a {
     color: #444;
 }
-a {
-    color: #666;
-    text-decoration: none;
-    transition: color 0.2s ease, border-color 0.2s ease;
-}
+
 h1, h2 {
   font-weight: normal;
 }
@@ -107,7 +111,5 @@ li {
   margin: 0 10px;
 }
 
-a {
-  color: #42b983;
-}
+
 </style>

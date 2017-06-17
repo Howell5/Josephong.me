@@ -1,12 +1,5 @@
 <template>
   <div id="app">
-    <!-- <img src="./assets/logo.png"> -->
-    <div class="header">
-      <a href="/">洪家伟 HOWELL</a>
-    </div>
-    <p class="links">
-      <a href="https://github.com/howell5" target="_blank"><img src="./assets/github.png"></a>
-    </p>
     <router-view></router-view>
   </div>
 </template>

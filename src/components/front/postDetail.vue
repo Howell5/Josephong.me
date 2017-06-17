@@ -1,5 +1,13 @@
 <template lang='html'>
+  <!-- <img src="./assets/logo.png"> -->
+
   <div class="main">
+    <div class="header">
+      <a href="/post">HOWELL</a>
+    </div>
+    <p class="links">
+      <a href="https://github.com/howell5" target="_blank"><img src="../../assets/github.png"></a>
+    </p>
     <div class="post">
       <h3 class="date">{{ post.date }}</h3>
       <h1>{{ post.title }}</h1>
@@ -26,7 +34,7 @@ export default {
   },
   computed: {
     compiledMarkdown: function() {
-      return marked(this.post.content, {
+      return marked(this.post.content || '', {
         renderer: new marked.Renderer(),
         gfm: true,
         tables: true,
