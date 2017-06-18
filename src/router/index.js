@@ -3,6 +3,7 @@ import Router from 'vue-router';
 import post from '@/components/front/Post';
 import postDetail from '@/components/front/postDetail';
 import admin from '@/components/back/admin';
+import articleList from '@/components/back/articleList';
 
 Vue.use(Router);
 
@@ -22,7 +23,17 @@ export default new Router({
     {
       path: '/admin',
       name: 'admin',
-      component: admin
+      component: admin,
+      children: [
+        {
+          path: '/',
+          component: articleList
+        },
+        {
+          path: 'articleList',
+          component: articleList
+        }
+      ]
     }
   ]
 });
