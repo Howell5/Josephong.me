@@ -6,7 +6,7 @@
         <!-- push就是相对定位了 -->
         <!--  offset设置的是margin-lef-->
         <el-col :span="20" style='font-size:26px'>
-          <span>AD<i style="color:#20a0ff">MIN</i></span>
+          <span>Howell</span>
         </el-col>
         <el-col :span='4' class='rightbar'>
           <el-dropdown trigger="click">
@@ -25,8 +25,8 @@
         <el-col :span="5">
           <el-menu theme="dark" mode="vertical" default-active="1" class="el-menu-vertical-demo">
             <el-menu-item-group title="管理面板">
-              <el-menu-item index="1"><i class="el-icon-menu"></i>文章管理</el-menu-item>
-              <el-menu-item index="2"><i class="el-icon-plus"></i>创建文章</el-menu-item>
+              <router-link to="/admin"><el-menu-item index="1"><i class="el-icon-menu"></i>文章管理</el-menu-item></router-link>
+              <router-link to="/admin/articleEdit"><el-menu-item index="2"><i class="el-icon-plus"></i>创建文章</el-menu-item></router-link>
             </el-menu-item-group>
           </el-menu>
         </el-col>

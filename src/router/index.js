@@ -4,6 +4,7 @@ import post from '@/components/front/Post';
 import postDetail from '@/components/front/postDetail';
 import admin from '@/components/back/admin';
 import articleList from '@/components/back/articleList';
+import articleEdit from '@/components/back/articleEdit';
 
 Vue.use(Router);
 
@@ -32,6 +33,15 @@ export default new Router({
         {
           path: 'articleList',
           component: articleList
+        },
+        {
+          path: 'articleEdit',
+          component: articleEdit
+        },
+        {
+          path: 'articleEdit/?id=:id',
+          name: 'EditArticle',
+          component: articleEdit
         }
       ]
     }

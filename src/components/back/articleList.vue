@@ -6,7 +6,7 @@
              style='width:100%'  align="center" :data="posts"v-loading="listLoading" element-loading-text="拼命加载中">
               <el-table-column type='index' width="60" ></el-table-column>
               <el-table-column  prop="date" width="180" label="创建时间" ></el-table-column>
-              <el-table-column  prop="title" width="220" label="文章标题" ></el-table-column>
+              <el-table-column  prop="title" width="320" label="文章标题" ></el-table-column>
               <el-table-column  label="操作" >
                 <template scope='scope'>
                   <!--这里点击查看进入具体页面但是路径中必须带有admin,这时具体页面里会出现评论的删除选项  -->
@@ -54,7 +54,10 @@ export default {
       });
     },
     editArticle(id) {
-
+      this.$router.push({
+        name: 'EditArticle',
+        params: { id: id }
+      })
     },
     remove(id) {
       this.$confirm('确认要删除吗?','提醒',{

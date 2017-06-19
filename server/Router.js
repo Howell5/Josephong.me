@@ -32,12 +32,7 @@ router.route('/api')
       })
 
       .post((req, res) => {
-        let article = new db.Articles();
-        article.title = req.body.title;
-        article.state = req.body.state;
-        article.content = req.body.content;
-
-        article.save((err) => {
+        new db.Articles(req.body.postInformation).save((err) => {
           if (err) res.send(err);
           res.json({ message: 'new article has been created' });
         });
@@ -48,7 +43,6 @@ router.route('/api/:post_id')
           if (err) {
             res.send(err);
           }
-          //post.date = moment(objectidToTimestamp(post._id)).format('YYYY-MM-DD');
           res.json(post);
         });
       })
@@ -66,7 +60,7 @@ router.route('/api/:post_id')
           post.title = req.body.title;
           post.state = req.body.state;
           post.content = req.body.content;
-
+          // post = req.body.postInformation;
           post.save( err => {
             if (err) res.send(err);
             res.json({ message: 'Update Successfully' })
