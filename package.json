@@ -4,7 +4,10 @@
   "description": "",
   "main": ".eslintrc.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint:js": "eslint *.js",
+    "lint:css": "eslint *../less",
+    "lint:json": "eslint *.json"
   },
   "repository": {
     "type": "git",
@@ -16,5 +19,11 @@
   "bugs": {
     "url": "https://github.com/Howell5/Josephong.me/issues"
   },
-  "homepage": "https://github.com/Howell5/Josephong.me#readme"
+  "homepage": "https://github.com/Howell5/Josephong.me#readme",
+  "devDependencies": {
+    "eslint": "^4.15.0",
+    "eslint-plugin-react": "^7.5.1",
+    "jsonlint": "^1.6.2",
+    "stylelint": "^8.4.0"
+  }
 }
