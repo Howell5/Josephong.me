@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node_modules/.bin/webpack-dev-server --color --inline",
+    "dev:app": "node_modules/.bin/webpack-dev-server --hot --inline",
+    "dev:api": "nodemon server/index.js",
     "test": "npm-run-all lint:* mocha",
     "mocha": "mocha tests/",
     "lint:js": "eslint *.js",

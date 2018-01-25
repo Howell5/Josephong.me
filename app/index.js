@@ -6,5 +6,3 @@ ReactDOM.render(
   <div>take care of youself</div>,
   document.getElementById('app')
 );
-alert('fuck you');
-console.log('it run succeed?');
