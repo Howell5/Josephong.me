@@ -1,15 +1,15 @@
-import koa from 'koa';
+import Koa from 'koa';
 import server from 'koa-static';
 import path from 'path';
+import router from './router';
 
-const app = new koa();
+const app = new Koa();
 
-app.use(
-  server(path.join(__dirname + '../app/admin'), {
-    index: 'index.html'
-  })
-);
-
+app.use((ctx, next) => {
+  ctx.body = 'hello human';
+  next();
+});
+app.use(router.routes());
 app.listen(3000);
 console.log('server running on port: 3000');
 
