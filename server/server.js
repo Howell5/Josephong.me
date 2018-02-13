@@ -6,7 +6,10 @@ import router from './router';
 const app = new Koa();
 
 app.use((ctx, next) => {
-  ctx.body = 'hello human';
+  ctx.body = {
+    userName: 'howell',
+    age: 17,
+  };
   next();
 });
 app.use(router.routes());

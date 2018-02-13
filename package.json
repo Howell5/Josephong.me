@@ -25,6 +25,7 @@
   },
   "homepage": "https://github.com/Howell5/Josephong.me#readme",
   "dependencies": {
+    "axios": "^0.17.1",
     "koa": "^2.4.1",
     "koa-router": "^7.3.0",
     "koa-static": "^4.0.2",
