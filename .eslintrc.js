@@ -18,6 +18,7 @@ module.exports = {
     indent: ['error', 2],
     'linebreak-style': ['error', 'unix'],
     quotes: ['error', 'single'],
+    'no-console': ['error', {allow: ['warn', 'error', 'log']}],
     semi: ['error', 'always'],
     'func-names': 'off',
     'global-require': 'off',

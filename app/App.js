@@ -1,31 +1,22 @@
-import React, { Component } from 'react';
-import axios from 'axios';
+import React from 'react';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+// import { Provider } from 'react-redux';
+import Home from './client/pages/home';
+import About from './client/pages/about';
 // import logger from 'winston';
-class Test extends Component {
-  constructor() {
-    super();
-    this.state = {
-      test: {},
-    };
-  }
-  componentDidMount() {
-    axios.get('api/admin')
-      .then((res) => {
-        console.log('request response', res);
-        this.setState({
-          test: res.data,
-        });
-      });
-  }
-  render() {
-    console.log('change it change to the react momo wuyu');
-    return (
-      <div style={{ width: '100px', height: '50px' }}>
-        <h2>{this.state.test.userName}</h2>
-        <h3>{this.state.test.age}</h3>
-      </div>
-    );
-  }
-}
 
-export default Test;
+const App = () => (
+  <Router>
+    <div>
+      <Route exact path="/" component={Home} />
+      <Route path="/about" component={About} />
+    </div>
+  </Router>
+);
+
+const Test = () => (
+  <div>
+    TESTTEST
+  </div>
+);
+export default App;
