@@ -10,9 +10,9 @@ class Home extends Component {
             <i className="icon-menu" />
           </button>
           <ul>
-            <li><a href=""></a></li>
-            <li><a href=""></a></li>
-            <li><a href=""></a></li>
+            <li><a href="" /></li>
+            <li><a href="" /></li>
+            <li><a href="" /></li>
           </ul>
         </div>
         <div className="heading">
