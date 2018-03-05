@@ -9,11 +9,7 @@ class Home extends Component {
           <button className="toggle" href="#">
             <i className="icon-menu" />
           </button>
-          <ul>
-            <li><a href="" /></li>
-            <li><a href="" /></li>
-            <li><a href="" /></li>
-          </ul>
+
         </div>
         <div className="heading">
           <h2>howell</h2>
