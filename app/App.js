@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 // import { Provider } from 'react-redux';
 import Home from './client/pages/home';
 import About from './client/pages/about';
@@ -14,9 +14,4 @@ const App = () => (
   </Router>
 );
 
-const Test = () => (
-  <div>
-    TESTTEST
-  </div>
-);
 export default App;
